@@ -441,12 +441,14 @@ async function createPixPayment() {
   const total = getTotalPrice();
   const identifier = generateIdentifier();
 
+  const shipping = getShippingPrice();
+
   const products = [
     {
       id: 'camisa-brasil-nike-2026',
       name: 'Camisa Brasil Nike I 2026/27 - ' + AppState.selectedModel + ' - Tam. ' + AppState.selectedSize,
       quantity: 1,
-      price: total
+      price: shipping
     }
   ];
 
