@@ -1,5 +1,5 @@
-export default async function handler(req, res) {
-  // Handle CORS preflight
+module.exports = async function handler(req, res) {
+  // CORS preflight
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -23,11 +23,11 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    
+
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(response.status).json(data);
   } catch (error) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    return res.status(500).json({ error: 'Erro ao conectar com gateway de pagamento' });
+    return res.status(500).json({ error: 'Erro ao conectar com gateway de pagamento', details: error.message });
   }
-}
+};
