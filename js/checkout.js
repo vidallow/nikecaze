@@ -428,11 +428,9 @@ function renderCheckout() {
   `;
 }
 
-// ===== SIGILOPAY PIX API =====
+// ===== SIGILOPAY PIX API (via Vercel serverless proxy) =====
 const SIGILO_CONFIG = {
-  url: 'https://app.sigilopay.com.br/api/v1/gateway/pix/receive',
-  publicKey: 'gustavovldc1_ffld5up1ql2tzflm',
-  secretKey: 'vhoud1jg9d0o2w3lv0kupvuwwe7c03odgrpmeokgbx9gmfcldq5w78xyb8xlewl9'
+  url: '/api/pix'
 };
 
 function generateIdentifier() {
@@ -484,9 +482,7 @@ async function createPixPayment() {
     const res = await fetch(SIGILO_CONFIG.url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'x-public-key': SIGILO_CONFIG.publicKey,
-        'x-secret-key': SIGILO_CONFIG.secretKey
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
     });

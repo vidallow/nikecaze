@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/quiz", "destination": "/" },
+    { "source": "/loading", "destination": "/" },
+    { "source": "/result", "destination": "/" },
+    { "source": "/produto", "destination": "/" },
+    { "source": "/checkout", "destination": "/" }
+  ]
+}
