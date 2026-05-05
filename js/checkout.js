@@ -510,7 +510,11 @@ function renderPixQR() {
   const box = document.getElementById('pix-qr-box');
   if (!box) return;
 
-  const imgSrc = AppState.pixData.qrBase64 || AppState.pixData.qrImage;
+  let imgSrc = AppState.pixData.qrBase64 || AppState.pixData.qrImage || '';
+  // Add data URI prefix if raw base64
+  if (imgSrc && !imgSrc.startsWith('data:') && !imgSrc.startsWith('http')) {
+    imgSrc = 'data:image/png;base64,' + imgSrc;
+  }
   box.innerHTML = imgSrc
     ? `<img src="${imgSrc}" alt="QR Code Pix" style="width:180px;height:180px;border-radius:8px;" />`
     : `<p style="color:#999;font-size:13px;">Use o código Copia e Cola abaixo</p>`;
