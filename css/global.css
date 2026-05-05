@@ -1,0 +1,158 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --neon: #c8f542;
+  --neon-dark: #a8d435;
+  --bg-dark: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --bg-option: #1e1e1e;
+  --text-white: #ffffff;
+  --text-gray: #999999;
+  --text-light-gray: #cccccc;
+  --border-gray: #333333;
+  --green-check: #c8f542;
+  --red: #ff4444;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --max-w: 480px;
+  --checkout-max: 1100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font);
+}
+
+input, textarea {
+  font-family: var(--font);
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.screen {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ===== MOTION ANIMATIONS ===== */
+
+/* Screen entrance — blur dissolve */
+.fade-in {
+  animation: motionFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes motionFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal overlay backdrop */
+@keyframes overlayFadeIn {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to   { opacity: 1; backdrop-filter: blur(4px); }
+}
+
+/* Modal content — scale up with blur */
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Subtle element pop */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Shared overlay style */
+.modal-overlay-animated {
+  animation: overlayFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.modal-content-animated {
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,213 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px 40px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.landing__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  backdrop-filter: blur(6px);
+}
+
+.landing__badge span:first-child {
+  color: var(--neon);
+  text-shadow: 0 0 8px rgba(200,245,66,0.4);
+}
+
+.landing__badge span:nth-child(2) {
+  color: var(--text-gray);
+  font-size: 11px;
+}
+
+.landing__badge span:last-child {
+  color: var(--text-white);
+}
+
+.landing__title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.landing__title .highlight {
+  color: var(--neon);
+  display: block;
+}
+
+.landing__desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-light-gray);
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.landing__desc strong {
+  color: var(--text-white);
+}
+
+.landing__desc .neon-text {
+  color: var(--neon);
+  text-shadow: 0 0 12px rgba(200,245,66,0.5), 0 0 24px rgba(200,245,66,0.3);
+}
+
+.landing__timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(200,245,66,0.1);
+  border: 1px solid rgba(200,245,66,0.25);
+  border-radius: 100px;
+  padding: 10px 24px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.landing__timer-pill svg {
+  width: 18px;
+  height: 18px;
+  color: var(--neon);
+}
+
+.landing__timer-pill .timer-value {
+  color: var(--neon);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.landing__free {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.landing__free strong {
+  color: var(--text-white);
+}
+
+.landing__hero {
+  position: relative;
+  width: 100%;
+  margin-bottom: 32px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.landing__hero::before {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  right: -20%;
+  height: 80%;
+  background: radial-gradient(ellipse at center bottom, rgba(60,180,40,0.45) 0%, rgba(120,220,50,0.25) 25%, transparent 65%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.landing__hero img {
+  width: 100%;
+  border-radius: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.landing__hero-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: var(--neon);
+  color: #000;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transform: rotate(-2deg);
+  z-index: 2;
+}
+
+.landing__cta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--neon);
+  color: #000;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 18px 32px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  transition: all 0.2s;
+}
+
+.landing__cta:hover {
+  background: var(--neon-dark);
+  transform: translateY(-1px);
+}
+
+.landing__cta:active {
+  transform: scale(0.98);
+}
+
+.landing__cta svg {
+  width: 20px;
+  height: 20px;
+}
+
+.landing__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  border-top: 1px solid var(--border-gray);
+  padding-top: 20px;
+}
+
+.landing__stat {
+  text-align: center;
+}
+
+.landing__stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.landing__stat:last-child .landing__stat-value {
+  color: var(--neon);
+}
+
+.landing__stat-label {
+  font-size: 11px;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
